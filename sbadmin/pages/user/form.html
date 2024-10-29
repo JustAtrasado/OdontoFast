@@ -1,0 +1,98 @@
+<form action="" method="post">
+    <label>Nome</label>
+    <input type="text" 
+        class="form-control" 
+        placeholder="Nome Completo" 
+        ng-model="pessoa.name">
+    <br/>
+    <div class="row">
+        <div class="col-md-4">
+            <label>CPF</label>
+            <input type="text" 
+                class="form-control" 
+                placeholder="000.000.000-00" 
+                mask="999.999.999-99"
+                ng-model="pessoa.cpf">                
+        </div>
+        <div class="col-md-4">
+            <label>E-mail</label>
+            <input type="email" 
+                class="form-control" 
+                placeholder="example@example.com" 
+                ng-model="pessoa.email">                
+        </div>
+        <div class="col-md-4">
+            <label>Telefone</label>
+            <input type="text" 
+                class="form-control" 
+                placeholder="(00) 00000-0000" 
+                mask="(99) 99999-9999"
+                ng-model="pessoa.phone">                
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-4">
+            <label>CEP</label>
+            <input type="text" 
+                class="form-control" 
+                placeholder="00000-000" 
+                mask="99999-999"
+                ng-blur="getCep(pessoa.cep)"
+                ng-model="pessoa.cep">                
+        </div>
+        <div class="col-md-6">
+            <label>Rua</label>
+            <input type="text" 
+                class="form-control" 
+                placeholder="Rua Arapongas" 
+                ng-model="pessoa.rua">                
+        </div>
+        <div class="col-md-2">
+            <label>Nº</label>
+            <input type="text" 
+                class="form-control" 
+                placeholder="123" 
+                ng-model="pessoa.number">                
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <label>Bairro</label>
+            <input type="text" 
+                class="form-control" 
+                placeholder="Bairro" 
+                ng-model="pessoa.bairro">                
+        </div>
+        <div class="col-md-6">
+            <label>Cidade</label>
+            <input type="text" 
+                class="form-control" 
+                placeholder="Cianorte" 
+                ng-model="pessoa.cidade">                
+        </div>
+        <div class="col-md-2">
+            <label>UF</label>
+            <input type="text" 
+                class="form-control"
+                placeholder="PR"
+                ng-model="pessoa.uf">                
+        </div>
+    </div>
+</form>
+
+<form action="" method="post">
+    <label>Nome</label>
+    <input type="text" class="form-control" placeholder="Nome Completo" ng-model="pessoa.name">
+    
+    <label>Status:</label>
+    <select class="form-control status-select" ng-model="pessoa.status">
+        <option value="ativo">Ativo</option>
+        <option value="inativo">Inativo</option>
+    </select>
+    
+    <br/>
+
+    <button type="submit" class="btn btn-success">Salvar</button>
+    <button type="button" class="btn btn-danger">Cancelar</button>
+</form>

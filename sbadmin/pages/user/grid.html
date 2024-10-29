@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-md-6">
+        <h3>Lista de Usuários</h3>
+    </div>
+    <div class="col-md-6 text-right">
+        <button class="btn btn-success" ng-click="modal(null)">Adicionar</button>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NOME</th>
+            <th>EMAIL</th>
+            <th>Situação</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="x in grid">
+            <td>{{x.id}}</td>
+            <td>{{x.name}}</td>
+            <td>{{x.email}}</td>
+            <td>
+                <button 
+                ng-click="modal(x)" 
+                class="btn btn-info">
+                    Editar
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<label>Filtrar por status:</label>
+<select class="status-filter" ng-model="filtroStatus" ng-change="filtrarUsuarios()">
+    <option value="todos">Todos</option>
+    <option value="ativo">Ativos</option>
+    <option value="inativo">Inativos</option>
+</select>
+
+<table class="table user-table" ng-if="usuarios.length > 0">
+    <thead>
+        <tr>
+            <th>Nome Completo</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="usuario in usuarios | filter: { status: filtroStatus !== 'todos' ? filtroStatus : '' }">
+            <td>{{ usuario.name }}</td>
+            <td>{{ usuario.status }}</td>
+        </tr>
+    </tbody>
+</table>
+
